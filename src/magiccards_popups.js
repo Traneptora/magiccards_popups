@@ -31,8 +31,10 @@ XKit.extensions.magiccards_popups = new Object({
             if (y > window.innerHeight / 2){
                 y -= 485;
             }
-            $(this).children("img").last().css("top", (y + 20) + 'px');
-            $(this).children("img").last().css("left", (x + 20) + 'px');
+            $(this).children("img").last().css({
+                "top": (y + 20) + 'px',
+                "left": (x + 20) + 'px'
+            });
         });
     },
 
