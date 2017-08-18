@@ -10,13 +10,15 @@ XKit.extensions.magiccards_popups = new Object({
     addPopup: function($atag, image_source){
         var $img = $("<img>");
         $img.prop("src", image_source);
-        $img.css("padding", "0px");
-        $img.css("border",  "0px");
-        $img.css("width", "312px");
-        $img.css("height", "445px");
-        $img.css("position", "fixed");
-        $img.css("visibility", "hidden");
-        $img.css("z-index", "300");
+        $img.css({
+            "padding": "0px",
+            "border":  "0px",
+            "width": "312px",
+            "height": "445px",
+            "position": "fixed",
+            "visibility": "hidden",
+            "z-index": "300"
+        });
         $atag.addClass("magiccards_popups-tooltip");
         $atag.hover(function(){
             $(this).children("img").last().css("visibility", "visible");
