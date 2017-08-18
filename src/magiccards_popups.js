@@ -22,7 +22,7 @@ XKit.extensions.magiccards_popups = new Object({
             $(this).children("img").last().css("visibility", "visible");
         }, function(){
             $(this).children("img").last().css("visibility", "hidden");
-        })
+        });
         $atag.append($img);
         $atag.on("mousemove.magiccards_popups", function(event){
             var x = event.clientX, y = event.clientY;
@@ -34,7 +34,7 @@ XKit.extensions.magiccards_popups = new Object({
         });
     },
 
-    addPopupsIfNecessary: function (){
+    addPopupsIfNecessary: function(){
         if (XKit.interface.is_tumblr_page() !== true){
             return;
         }
@@ -66,7 +66,7 @@ XKit.extensions.magiccards_popups = new Object({
     },
 
     removePopups: function(){
-        $(".magiccards_popups-tooltip").each(function () {
+        $(".magiccards_popups-tooltip").each(function() {
              XKit.extensions.magiccards_popups.removePopup($(this));
         });
     },
