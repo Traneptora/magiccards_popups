@@ -5,6 +5,8 @@
 //* FRAME false **//
 //* BETA true **//
 
+/* globals XKit */
+
 XKit.extensions.magiccards_popups = new Object({
 
     addPopup: function($atag, image_source){
