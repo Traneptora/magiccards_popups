@@ -1,11 +1,18 @@
 //* TITLE magiccards.info Popups **//
-//* VERSION 0.1.1 **//
+//* VERSION 0.1.2 **//
 //* DESCRIPTION    Creates visual popups for links to cards on magiccards.info **//
 //* DEVELOPER thebombzen **//
 //* FRAME false **//
 //* BETA true **//
 
 /* globals XKit */
+
+
+/*
+ * magiccards_popups is an extension to New XKit. It creates popup images for links to http://magiccards.info/
+ * Note that it only creates popups for links to direct cards, not searches.
+ * It adds popups on your dashboard and official tumblr pages, but not on user blogs.
+ */
 
 XKit.extensions.magiccards_popups = new Object({
 
