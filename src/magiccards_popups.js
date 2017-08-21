@@ -17,16 +17,20 @@ XKit.extensions.magiccards_popups = new Object({
 			$(this).children("img").last().css("visibility", "hidden");
 		});
 		$atag.append($img);
-		$atag.on("mousemove.magiccards_popups", function(event) {
+		$atag.on("mousemove.magiccards_popups", moveToMouse($img));
+	},
+
+	moveToMouse: function($img) {
+		return function(event) {
 			var x = event.clientX, y = event.clientY;
 			if (y > window.innerHeight / 2) {
 				y -= 485;
 			}
-			$(this).children("img").last().css({
+			$img.css({
 				"top": (y + 20) + 'px',
 				"left": (x + 20) + 'px'
 			});
-		});
+		}
 	},
 
 	addPopupsIfNecessary: function() {
