@@ -34,9 +34,6 @@ XKit.extensions.magiccards_popups = new Object({
 	},
 
 	addPopupsIfNecessary: function() {
-		if (XKit.interface.is_tumblr_page() !== true) {
-			return;
-		}
 		$("a").each(function() {
 			var $atag = $(this);
 			if ($atag.hasClass("magiccards_popups-tooltip")) {
@@ -74,7 +71,9 @@ XKit.extensions.magiccards_popups = new Object({
 
 	run: function() {
 		this.running = true;
-		XKit.extensions.magiccards_popups.addPopupsIfNecessary();
+		if (XKit.interface.is_tumblr_page() === true) {
+			XKit.extensions.magiccards_popups.addPopupsIfNecessary();
+		}
 		XKit.post_listener.add("magiccards_popups", XKit.extensions.magiccards_popups.addPopupsIfNecessary);
 	},
 
