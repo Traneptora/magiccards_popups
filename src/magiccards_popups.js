@@ -5,9 +5,6 @@
 //* FRAME false **//
 //* BETA true **//
 
-/* globals XKit */
-
-
 /*
  * magiccards_popups is an extension to New XKit. It creates popup images for links to http://magiccards.info/
  * Note that it only creates popups for links to direct cards, not searches.
