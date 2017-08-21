@@ -33,26 +33,32 @@ XKit.extensions.magiccards_popups = new Object({
 		}
 	},
 
+	magiccards_regex: new RegExp("//magiccards.info/([^/]+)/([^/]+)/([^.]+).html"),
+
 	addPopupsIfNecessary: function() {
 		$("a").each(function() {
 			var $atag = $(this);
 			if ($atag.hasClass("magiccards_popups-tooltip")) {
 				return;
 			}
-			var old_href = $atag.prop("href"), theMatch, image_source, replaced;
-			if (old_href) {
-				if (old_href.match(/^.*?\/\/magiccards.info\/.*?\/.*?\/.*?\.html$/)) {
-					theMatch = /^.*?\/\/magiccards.info\/(.*?)\/(.*?)\/(.*?)\.html$/.exec(old_href);
-					image_source = "http://magiccards.info/scans/" + theMatch[2] + "/" + theMatch[1] + "/" + theMatch[3] + ".jpg";
-					XKit.extensions.magiccards_popups.addPopup($atag, image_source);
-				} else if (old_href.match(/^http:\/\/t.umblr.com\/redirect\?z=http%3A%2F%2Fmagiccards\.info%2F.*?%2F.*?%2F.*?\.html(&.*)*$/)) {
-					replaced = /^http:\/\/t.umblr.com\/redirect\?z=(http%3A%2F%2Fmagiccards\.info%2F.*?%2F.*?%2F.*?\.html)(&.*)*$/.exec(old_href);
-					theMatch = /^.*?\/\/magiccards.info\/(.*?)\/(.*?)\/(.*?)\.html$/.exec(decodeURIComponent(replaced[1]));
-					image_source = "http://magiccards.info/scans/" + theMatch[2] + "/" + theMatch[1] + "/" + theMatch[3] + ".jpg";
-					XKit.extensions.magiccards_popups.addPopup($atag, image_source);
-				}
+			var href = XKit.extensions.magiccards_popups.replace_tumblr_redirects($atag.href);
+			var match = href.match(XKit.extensions.magiccards_popups.magiccards_regex);
+			if (match){
+				var image_source = "http://magiccards.info/scans/" + match[2] + "/" + match[1] + "/" + match[3] + ".jpg";
+				XKit.extensions.magiccards_popups.addPopup($atag, image_source);
 			}
 		});
+	},
+
+	tumblr_redirect_regexp: new RegExp("https?://t.umblr.com/redirect\\?z=([^&]+)"),
+
+	replace_tumblr_redirects: function(href){
+		var match = href.match(XKit.extensions.magiccards_popups.tumblr_redirect_regexp);
+		if (match){
+			return decodeURIComponent(match[1]);
+		} else {
+			return href;
+		}
 	},
 
 	removePopup: function($atag) {
