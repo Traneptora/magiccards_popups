@@ -1,6 +1,6 @@
 //* TITLE magiccards.info Popups **//
 //* VERSION 0.1.3 **//
-//* DESCRIPTION    Creates visual popups for links to cards on http://magiccards.info/. This will currently only create pop-ups for direct cards, not searches, and it only runs on official tumblr pages.**//
+//* DESCRIPTION    Creates visual popups for links to cards on http://magiccards.info/. **//
 //* DEVELOPER thebombzen **//
 //* FRAME false **//
 //* BETA true **//
