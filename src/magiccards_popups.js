@@ -42,7 +42,7 @@ XKit.extensions.magiccards_popups = new Object({
 				return;
 			}
 			var href = XKit.extensions.magiccards_popups.replace_tumblr_redirects($atag.href);
-			var match = href.match(XKit.extensions.magiccards_popups.magiccards_regex);
+			var match = XKit.extensions.magiccards_popups.magiccards_regex.exec(href);
 			if (match){
 				var image_source = "http://magiccards.info/scans/" + match[2] + "/" + match[1] + "/" + match[3] + ".jpg";
 				XKit.extensions.magiccards_popups.addPopup($atag, image_source);
@@ -53,7 +53,7 @@ XKit.extensions.magiccards_popups = new Object({
 	tumblr_redirect_regexp: new RegExp("https?://t.umblr.com/redirect\\?z=([^&]+)"),
 
 	replace_tumblr_redirects: function(href){
-		var match = href.match(XKit.extensions.magiccards_popups.tumblr_redirect_regexp);
+		var match = XKit.extensions.magiccards_popups.tumblr_redirect_regexp.exec(href);
 		if (match){
 			return decodeURIComponent(match[1]);
 		} else {
