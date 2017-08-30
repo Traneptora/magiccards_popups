@@ -41,7 +41,7 @@ XKit.extensions.magiccards_popups = new Object({
 			if ($atag.hasClass("magiccards_popups-tooltip")) {
 				return;
 			}
-			var href = XKit.extensions.magiccards_popups.replace_tumblr_redirects($atag.href);
+			var href = XKit.extensions.magiccards_popups.replace_tumblr_redirects($atag.prop("href"));
 			var match = XKit.extensions.magiccards_popups.magiccards_regex.exec(href);
 			if (match){
 				var image_source = "http://magiccards.info/scans/" + match[2] + "/" + match[1] + "/" + match[3] + ".jpg";
