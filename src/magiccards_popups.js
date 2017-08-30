@@ -33,7 +33,7 @@ XKit.extensions.magiccards_popups = new Object({
 		}
 	},
 
-	magiccards_regex: new RegExp("//magiccards.info/([^/]+)/([^/]+)/([^.]+).html"),
+	magiccards_regex: new RegExp("^http://magiccards.info/([^/]+)/([^/]+)/([^.]+).html"),
 
 	addPopupsIfNecessary: function() {
 		$("a").each(function() {
@@ -50,7 +50,7 @@ XKit.extensions.magiccards_popups = new Object({
 		});
 	},
 
-	tumblr_redirect_regexp: new RegExp("https?://t.umblr.com/redirect\\?z=([^&]+)"),
+	tumblr_redirect_regexp: new RegExp("^https?://t.umblr.com/redirect\\?z=([^&]+)"),
 
 	replace_tumblr_redirects: function(href){
 		var match = XKit.extensions.magiccards_popups.tumblr_redirect_regexp.exec(href);
