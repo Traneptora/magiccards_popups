@@ -17,7 +17,7 @@ XKit.extensions.magiccards_popups = new Object({
 			$(this).children("img").last().css("visibility", "hidden");
 		});
 		$atag.append($img);
-		$atag.on("mousemove.magiccards_popups", moveToMouse($img));
+		$atag.on("mousemove.magiccards_popups", XKit.extensions.magiccards_popups.moveToMouse($img));
 	},
 
 	moveToMouse: function($img) {
