@@ -82,12 +82,14 @@ XKit.extensions.magiccards_popups = new Object({
 		if (XKit.interface.is_tumblr_page() === true) {
 			XKit.extensions.magiccards_popups.addPopupsIfNecessary();
 		}
+		XKit.tools.init_css("magiccards_popups");
 		XKit.post_listener.add("magiccards_popups", XKit.extensions.magiccards_popups.addPopupsIfNecessary);
 	},
 
 	destroy: function() {
 		this.running = false;
 		XKit.extensions.magiccards_popups.removePopups();
+		XKit.tools.remove_css("magiccards_popups");
 		XKit.post_listener.remove("magiccards_popups");
 	}
 
