@@ -38,7 +38,7 @@ XKit.extensions.magiccards_popups = new Object({
 	addPopupsIfNecessary: function() {
 		$("a").each(function() {
 			var $atag = $(this);
-			if ($atag.hasClass("magiccards_popups-tooltip")) {
+			if ($atag.hasClass("magiccards_popups-tooltip-scanned") || $atag.hasClass("magiccards_popups-tooltip")) {
 				return;
 			}
 			var href = XKit.extensions.magiccards_popups.replace_tumblr_redirects($atag.prop("href"));
@@ -46,6 +46,8 @@ XKit.extensions.magiccards_popups = new Object({
 			if (match){
 				var image_source = "http://magiccards.info/scans/" + match[2] + "/" + match[1] + "/" + match[3] + ".jpg";
 				XKit.extensions.magiccards_popups.addPopup($atag, image_source);
+			} else {
+				$atag.addClass("magiccards_popups-tooltip-scanned");
 			}
 		});
 	},
