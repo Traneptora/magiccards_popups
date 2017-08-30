@@ -7,3 +7,7 @@ a.magiccards_popups-tooltip img {
 	visibility: hidden;
 	z-index: 300;
 }
+
+a.magiccards_popups-tooltip:hover img {
+	visibility: visible;
+}

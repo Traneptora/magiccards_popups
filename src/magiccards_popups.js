@@ -59,11 +59,6 @@ XKit.extensions.magiccards_popups = new Object({
 		var $img = $("<img>");
 		$img.prop("src", image_source);
 		$atag.addClass("magiccards_popups-tooltip");
-		$atag.hover(function() {
-			$(this).children("img").last().css("visibility", "visible");
-		}, function() {
-			$(this).children("img").last().css("visibility", "hidden");
-		});
 		$atag.append($img);
 		$atag.on("mousemove.magiccards_popups", XKit.extensions.magiccards_popups.moveToMouse($img));
 	},
@@ -95,5 +90,4 @@ XKit.extensions.magiccards_popups = new Object({
 		$atag.off("mousemove.magiccards_popups");
 		$atag.removeClass("magiccards_popups-tooltip");
 	}
-
 });
