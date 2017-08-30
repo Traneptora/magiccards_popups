@@ -85,6 +85,9 @@ XKit.extensions.magiccards_popups = new Object({
 		$(".magiccards_popups-tooltip").each(function() {
 			XKit.extensions.magiccards_popups.removePopup($(this));
 		});
+		$(".magiccards_popups-tooltip-scanned").each(function() {
+			$(this).removeClass("magiccards_popups-tooltip-scanned");
+		});
 	},
 
 	removePopup: function($atag) {
