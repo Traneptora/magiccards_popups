@@ -1,6 +1,6 @@
 //* TITLE magiccards.info Popups **//
 //* VERSION 0.1.3 **//
-//* DESCRIPTION    Creates visual popups for links to cards on http://magiccards.info/. **//
+//* DESCRIPTION    Creates visual popups for links to cards on https://magiccards.info/. **//
 //* DEVELOPER thebombzen **//
 //* FRAME false **//
 //* BETA true **//
@@ -25,7 +25,7 @@ XKit.extensions.magiccards_popups = new Object({
 		XKit.post_listener.remove("magiccards_popups");
 	},
 
-	magiccards_regex: new RegExp("^http://magiccards.info/([^/]+)/([^/]+)/([^.]+).html"),
+	magiccards_regex: new RegExp("^https?://magiccards.info/([^/]+)/([^/]+)/([^.]+).html"),
 
 	addPopupsIfNecessary: function() {
 		$("a").each(function() {
@@ -36,7 +36,7 @@ XKit.extensions.magiccards_popups = new Object({
 			var href = XKit.extensions.magiccards_popups.replace_tumblr_redirects($atag.prop("href"));
 			var match = XKit.extensions.magiccards_popups.magiccards_regex.exec(href);
 			if (match) {
-				var image_source = "http://magiccards.info/scans/" + match[2] + "/" + match[1] + "/" + match[3] + ".jpg";
+				var image_source = "https://magiccards.info/scans/" + match[2] + "/" + match[1] + "/" + match[3] + ".jpg";
 				XKit.extensions.magiccards_popups.addPopup($atag, image_source);
 			} else {
 				$atag.addClass("magiccards_popups-tooltip-scanned");
