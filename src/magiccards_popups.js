@@ -13,9 +13,9 @@ XKit.extensions.magiccards_popups = new Object({
 		this.running = true;
 		if (XKit.interface.is_tumblr_page() === true) {
 			XKit.extensions.magiccards_popups.addPopupsIfNecessary();
+			XKit.tools.init_css("magiccards_popups");
+			XKit.post_listener.add("magiccards_popups", XKit.extensions.magiccards_popups.addPopupsIfNecessary);
 		}
-		XKit.tools.init_css("magiccards_popups");
-		XKit.post_listener.add("magiccards_popups", XKit.extensions.magiccards_popups.addPopupsIfNecessary);
 	},
 
 	destroy: function() {
