@@ -1,5 +1,5 @@
 //* TITLE magiccards.info Popups **//
-//* VERSION 0.1.3 **//
+//* VERSION 0.1.4 **//
 //* DESCRIPTION    Creates visual popups for links to cards on https://magiccards.info/. **//
 //* DEVELOPER thebombzen **//
 //* FRAME false **//
