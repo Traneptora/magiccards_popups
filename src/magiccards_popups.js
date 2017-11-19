@@ -14,7 +14,11 @@ XKit.extensions.magiccards_popups = new Object({
 		if (XKit.interface.is_tumblr_page() === true) {
 			XKit.extensions.magiccards_popups.addPopupsIfNecessary();
 			XKit.tools.init_css("magiccards_popups");
-			XKit.post_listener.add("magiccards_popups", XKit.extensions.magiccards_popups.addPopupsIfNecessary);
+			XKit.extensions.magiccards_popups.getObserver().observe(document.body, {
+				attributes: false,
+				childList: true,
+				characterData: false
+			});
 		}
 	},
 
@@ -22,7 +26,7 @@ XKit.extensions.magiccards_popups = new Object({
 		this.running = false;
 		XKit.extensions.magiccards_popups.removePopups();
 		XKit.tools.remove_css("magiccards_popups");
-		XKit.post_listener.remove("magiccards_popups");
+		XKit.extensions.magiccards_popups.getObserver().disconnect();
 	},
 
 	magiccards_regex: new RegExp("^https?://magiccards.info/([^/]+)/([^/]+)/([^.]+).html"),
@@ -43,6 +47,16 @@ XKit.extensions.magiccards_popups = new Object({
 			}
 		});
 	},
+
+	observer: undefined,
+
+	getObserver: function(){
+		if (XKit.extensions.magiccards_popups.observer === undefined){
+			XKit.extensions.magiccards_popups.observer = new MutationObserver(XKit.extensions.magiccards_popups.addPopupsIfNecessary);
+		}
+		return XKit.extensions.magiccards_popups.observer;
+	},
+
 
 	tumblr_redirect_regexp: new RegExp("^https?://t.umblr.com/redirect\\?z=([^&]+)"),
 
