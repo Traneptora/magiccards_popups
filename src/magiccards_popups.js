@@ -50,8 +50,8 @@ XKit.extensions.magiccards_popups = {
 
 	observer: undefined,
 
-	getObserver: function(){
-		if (XKit.extensions.magiccards_popups.observer === undefined){
+	getObserver: function() {
+		if (XKit.extensions.magiccards_popups.observer === undefined) {
 			XKit.extensions.magiccards_popups.observer = new MutationObserver(XKit.extensions.magiccards_popups.addPopupsIfNecessary);
 		}
 		return XKit.extensions.magiccards_popups.observer;
