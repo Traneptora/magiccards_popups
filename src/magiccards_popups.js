@@ -1,11 +1,11 @@
 //* TITLE magiccards.info Popups **//
-//* VERSION 0.1.4 **//
+//* VERSION 0.1.5 **//
 //* DESCRIPTION    Creates visual popups for links to cards on https://magiccards.info/. **//
 //* DEVELOPER thebombzen **//
 //* FRAME false **//
 //* BETA true **//
 
-XKit.extensions.magiccards_popups = new Object({
+XKit.extensions.magiccards_popups = {
 
 	running: false,
 
@@ -104,4 +104,4 @@ XKit.extensions.magiccards_popups = new Object({
 		$atag.off("mousemove.magiccards_popups");
 		$atag.removeClass("magiccards_popups-tooltip");
 	}
-});
+};
